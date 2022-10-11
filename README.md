@@ -2,7 +2,7 @@
 
 A simple tool for debugging HTTP requests. nginx will return all request headers and body to the client.
 
-For the Docker image, see https://hub.docker.com/repository/docker/cisattrifork/http-header-echo
+For the Docker image, see https://github.com/SirCAS/nginx-echo-headers/pkgs/container/nginx-echo-headers
 
 The project is based off the works on https://github.com/brndnmtthws/nginx-echo-headers but allows non-root user for running the container image.
 
@@ -12,9 +12,9 @@ The project is based off the works on https://github.com/brndnmtthws/nginx-echo-
 Try running it like so:
 
 ```ShellSession
-$ docker run -u 101:101 -p 8080:8080 cisattrifork/http-header-echo
-Unable to find image 'cisattrifork/http-header-echo:latest' locally
-latest: Pulling from cisattrifork/http-header-echo
+$ docker run -u 101:101 -p 8080:8080 ghcr.io/sircas/nginx-echo-headers
+Unable to find image 'ghcr.io/sircas/nginx-echo-headers:latest' locally
+latest: Pulling from ghcr.io/sircas/nginx-echo-headers
 530afca65e2e: Pull complete 
 072ff913b73f: Pull complete 
 e39b9f0ae879: Pull complete 
@@ -22,7 +22,7 @@ e39b9f0ae879: Pull complete
 51787f289c82: Pull complete 
 b02224ea6e2c: Pull complete 
 Digest: sha256:e3961f532025d56091967049b13a0fa81827d2c781dc9e6e93d9935f37e7723e
-Status: Downloaded newer image for cisattrifork/http-header-echo:latest
+Status: Downloaded newer image for ghcr.io/sircas/nginx-echo-headers:latest
 2022/10/11 10:43:25 [notice] 1#1: using the "epoll" event method
 2022/10/11 10:43:25 [notice] 1#1: openresty/1.21.4.1
 2022/10/11 10:43:25 [notice] 1#1: built by gcc 11.2.1 20220219 (Alpine 11.2.1_git20220219) 
@@ -88,7 +88,7 @@ spec:
         sidecar.istio.io/inject: "true"
     spec:
       containers:
-        - image: cisattrifork/http-header-echo:latest
+        - image: ghcr.io/sircas/nginx-echo-headers:latest
           name: server
           ports:
             - containerPort: 8080
