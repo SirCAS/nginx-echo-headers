@@ -1,5 +1,5 @@
 
-FROM openresty/openresty:1.27.1.1-4-alpine
+FROM openresty/openresty:1.27.1.2-0-alpine
 COPY nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
 RUN chown -R 101:101 /usr/local/openresty/nginx/
 EXPOSE 8080
